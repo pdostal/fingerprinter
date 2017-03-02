@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Pingie</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/print.css" media="print">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="script.js" ></script>
+  </head>
+  <body>
+    <header>
+      <h1>Fingerprinter</h1>
+      <form action="/">
+        <label for="server">Server</label>
+        <input type="text" name="server" id="server" value="<%= server %>"><br>
+        <label for="client">Client</label>
+        <input type="text" name="client" id="client" value="<%= client %>"><br>
+        <input type="submit" value="Submit">
+      </form>
+    </header>
+
+    <main id="main">
+<pre id="cmd1"><%= out1 %></pre>
+<pre id="cmd2"><%= out2 %></pre>
+    </main>
+
+
+    <footer>
+      <hr>
+      <p>&copy; <a href="mailto:pdostal@pdostal.cz/">Pavel Dostál</a></p>
+    </footer>
+  </body>
+</html>
