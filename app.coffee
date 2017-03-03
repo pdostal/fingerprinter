@@ -19,8 +19,8 @@ express.get '/', (req, res) ->
   server = req.query.server || 'pool.sks-keyservers.net'
   client = req.query.client || '0x65BDCDAB70974BA9'
 
-  cmd1 = "gpg --keyserver #{server} --recv-keys #{client}"
-  cmd2 = "gpg --fingerprint #{client} | grep -v '^$'"
+  cmd1 = "gpg --keyid-format 0xLONG --keyserver #{server} --recv-keys #{client}"
+  cmd2 = "gpg --keyid-format 0xLONG --fingerprint #{client} | grep -v '^$'"
   exec cmd1, (error1, stdout1, stderr1) ->
     console.log '$ '+cmd1
     console.log stderr1

@@ -1,7 +1,7 @@
 {
   "name": "fingerprinter",
   "main": "app.coffee",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Prepare a page full of PGP fingerprint strips",
   "author": "Pavel Dostál <pdostal@pdostal.cz> (https://pdostal.cz/)",
   "license": "MIT",
