@@ -5,3 +5,8 @@
 header,footer {
   display: none;
 }
+
+pre {
+  page-break-inside: avoid;
+}
+
