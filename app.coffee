@@ -1,3 +1,4 @@
+fs = require 'fs'
 moment = require 'moment'
 helmet = require 'helmet'
 expressjs = require 'express'
@@ -31,6 +32,11 @@ express.get '/', (req, res) ->
 
   cmd1 = "gpg --keyid-format 0xLONG --keyserver #{server} --recv-keys #{client}"
   cmd2 = "gpg --keyid-format 0xLONG --fingerprint #{client} | grep -v '^$'"
+
+  fs.appendFile 'history.txt', "#{client}\n", (err) ->
+    if err
+      console.log "#{client} ERROR\n";
+
   exec cmd1, (error1, stdout1, stderr1) ->
     console.log '$ '+cmd1
     console.log stderr1
