@@ -37,9 +37,18 @@ express.get '/', (req, res) ->
     exec cmd2, (error2, stdout2, stderr2) ->
       console.log '$ '+cmd2
       console.log stdout2
-      
+
+      stdout2 = stdout2.replace /pub.*[a-zA-Z0-9]*\/0x/, "0x"
+      stdout2 = stdout2.replace /\[.*\] \[expires: (.*)\]/, "$1"
+      stdout2 = stdout2.replace /.*Key fingerprint = /, "fingerprint: "
+      stdout2 = stdout2.replace /(fingerprint: .*)  (.*)/, "$1\n             $2"
+      stdout2 = stdout2.replace /.*\[ unknown\] /g, ""
+      stdout2 = stdout2.replace /.*image of size.*/, ""
+      stdout2 = stdout2.replace /sub.*/g, ""
+      stdout2 = stdout2.replace /^\s*\n/gm, ""
+
       server = if server == 'E' then req.query.server else server
       client = if client == 'E' then req.query.client else client
-      
+
       data = { out1: stderr1, out2: stdout2, server: server, client: client }
       res.render 'index.ejs', data

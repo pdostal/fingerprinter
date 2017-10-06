@@ -8,4 +8,9 @@ services:
       - .:/app
     ports:
       - "4066:4000"
+    network_mode: bridge
     restart: always
+
+networks:
+  default:
+    driver: "null"

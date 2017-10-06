@@ -1,5 +1,5 @@
 @page {
-  size: auto;  margin: 0mm 10mm;
+  size: landscape;  margin: 0mm 10mm;
 }
 
 header,footer {
@@ -9,4 +9,3 @@ header,footer {
 pre {
   page-break-inside: avoid;
 }
-
